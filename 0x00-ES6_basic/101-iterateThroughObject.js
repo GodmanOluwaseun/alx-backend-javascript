@@ -1,11 +1,11 @@
 export default function iterateThroughObject(reportWithIterator) {
-  let result = "";
+  let result = '';
 
-  for (let value of reportWithIterator) {
-    result += value + " | ";
+  for (const value of reportWithIterator) {
+    result += `${value} | `;
   }
 
-  if (result.endsWith(" | ")) {
+  if (result.endsWith(' | ')) {
     result = result.slice(0, -3);
   }
 

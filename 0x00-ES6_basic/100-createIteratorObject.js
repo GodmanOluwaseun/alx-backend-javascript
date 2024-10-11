@@ -6,5 +6,5 @@ export default function createIteratorObject(report) {
       }
     }
   }
-  return objectIterator;
+  return objectIterator();
 }

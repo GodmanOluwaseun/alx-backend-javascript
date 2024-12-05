@@ -23,7 +23,7 @@ if (isPipedInput) {
   });
 } else {
   rl.question('', (userName) => {
-  console.log(`Your name is: ${userName}`);
-  rl.close();
+    console.log(`Your name is: ${userName}`);
+    rl.close();
   });
-};
+}

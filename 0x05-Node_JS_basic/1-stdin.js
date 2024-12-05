@@ -15,10 +15,15 @@ const rl = readline.createInterface({
 
 console.log('Welcome to Holberton School, what is your name?');
 
-rl.question('', (userName) => {
-  console.log(`Your name is: ${userName}`);
-  if (isPipedInput) {
+if (isPipedInput) {
+  rl.question('', (userName) => {
+    console.log(`Your name is: ${userName}`);
     console.log('This important software is now closing');
-  }
+    rl.close();
+  });
+} else {
+  rl.question('', (userName) => {
+  console.log(`Your name is: ${userName}`);
   rl.close();
-});
+  });
+};

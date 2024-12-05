@@ -4,17 +4,21 @@
  * @description - An interactive user program to greet user.
  */
 
-const readline =  require('readline');
+const readline = require('readline');
+
+const isPipedInput = !process.stdin.isTTY;
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
-console.log("Welcome to Holberton School, what is your name?");
+console.log('Welcome to Holberton School, what is your name?');
 
 rl.question('', (userName) => {
   console.log(`Your name is: ${userName}`);
-  console.log("This important software is now closing");
+  if (isPipedInput) {
+    console.log('This important software is now closing');
+  }
   rl.close();
 });

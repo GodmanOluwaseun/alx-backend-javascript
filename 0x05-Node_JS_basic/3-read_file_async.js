@@ -4,7 +4,7 @@
  * @return {promise} Promise that resolves when OfflineAudioCompletionEvent.
  */
 
-const fs = require('fs/promises');
+const fs = require('fs').promises;
 
 async function countStudents(path) {
   try {

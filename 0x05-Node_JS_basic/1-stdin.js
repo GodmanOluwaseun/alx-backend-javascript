@@ -13,17 +13,12 @@ const rl = readline.createInterface({
   output: isPipedInput ? undefined : process.stdout,
 });
 
-console.log('Welcome to Holberton School, what is your name?');
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-if (isPipedInput) {
-  rl.question('', (userName) => {
-    console.log(`Your name is: ${userName}`);
-    console.log('This important software is now closing');
-    rl.close();
+rl.question('', (userName) => {
+  process.stdout.write(`Your name is: ${userName}\n`);
+  if (isPipedInput) {
+    process.stdout.write('This important software is now closing\n');
+  }
+  rl.close();
   });
-} else {
-  rl.question('', (userName) => {
-    console.log(`Your name is: ${userName}`);
-    rl.close();
-  });
-}

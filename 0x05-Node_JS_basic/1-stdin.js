@@ -10,7 +10,7 @@ const isPipedInput = !process.stdin.isTTY;
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout,
+  output: isPipedInput ? undefined : process.stdout,
 });
 
 console.log('Welcome to Holberton School, what is your name?');

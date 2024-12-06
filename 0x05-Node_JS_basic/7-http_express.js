@@ -17,7 +17,7 @@ app.get('/students', async (req, res) => {
     const output = await countStudents(dbase);
     res.status(200).send(`This is the list of our students\n${output}`);
   } catch (error) {
-    res.send('Cannot load the database');
+    res.status(500).send('Cannot load the database');
   }
 });
 

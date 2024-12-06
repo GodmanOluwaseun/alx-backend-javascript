@@ -21,7 +21,6 @@ app.get('/students', async (req, res) => {
     res.setHeader('Content-Type', 'text/plain');
     res.send(`This is the list of our students\n${output}`);
   } catch (error) {
-    res.statusCode = 500;
     res.send('Cannot load the database');
   }
 });

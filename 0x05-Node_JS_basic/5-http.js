@@ -4,6 +4,7 @@
 
 const http = require('http');
 const countStudents = require('./3-read_file_async.js');
+const dbase = process.argv[2];
 
 const app = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -12,13 +13,13 @@ const app = http.createServer((req, res) => {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
     res.write('This is the list of our students\n');
-    countStudents('database.csv')
+    countStudents(dbase)
       .then((output) => {
         res.write(output);
         res.end();
       })
       .catch(() => {
-        res.write(200, { 'Content-Type': 'text/plain' });
+        res.write(500, { 'Content-Type': 'text/plain' });
         res.end('Cannot load the database');
       });
   } else {

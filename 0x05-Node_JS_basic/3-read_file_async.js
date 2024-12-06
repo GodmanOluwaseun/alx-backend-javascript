@@ -39,7 +39,6 @@ async function countStudents(path) {
     });
 
     return output.trim();
-
   } catch (error) {
     throw Error('Cannot load the database');
   }

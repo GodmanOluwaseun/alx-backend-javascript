@@ -12,11 +12,10 @@ app.get('/', (req, res) => {
   res.status(200).end('Hello Holberton School!');
 });
 
-app.get('/students', (req, res) => {
-  res.status(200).write('This is the list of our students\n');
+app.get('/students', async (req, res) => {
   try {
-    const output = countStudents(dbase);
-    res.end(output);
+    const output = await countStudents(dbase);
+    res.status(200).send(`This is the list of our students\n${output}`);
   } catch (error) {
     res.status(500).end('Cannot load the database');
   }

@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
-  res.write('This is the list of our students\n')
+  res.status(200).write('This is the list of our students\n');
   try {
     const output = countStudents(dbase);
     res.end(output);

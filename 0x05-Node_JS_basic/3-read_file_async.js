@@ -28,12 +28,18 @@ async function countStudents(path) {
     });
 
     const totalStudents = lines.length - 1;
-    console.log(`Number of students: ${totalStudents}`);
+    let output = `Number of students: ${totalStudents}\n`;
+    console.log(output.trim());
 
     Object.keys(fields).forEach((field) => {
       const students = fields[field];
-      console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
+      const fieldOutput = `Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`;
+      console.log(fieldOutput);
+      output += `${fieldOutput}\n`;
     });
+
+    return output.trim();
+
   } catch (error) {
     throw Error('Cannot load the database');
   }

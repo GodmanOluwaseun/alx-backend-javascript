@@ -18,8 +18,8 @@ const app = http.createServer((req, res) => {
         res.end();
       })
       .catch((error) => {
-        res.write(error.message);
-        res.end();
+        res.write(500, { 'Content-Type': 'text/plain' });
+        res.end("Cannot load the database");
       });
   } else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });

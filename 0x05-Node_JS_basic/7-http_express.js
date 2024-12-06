@@ -9,25 +9,20 @@ const dbase = process.argv[2];
 const app = express();
 
 app.get('/', (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.send('Hello Holberton School!');
+  res.status(200).send('Hello Holberton School!');
 });
 
 app.get('/students', async (req, res) => {
   try {
     const output = await countStudents(dbase);
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.send(`This is the list of our students\n${output}`);
+    res.status(200).send(`This is the list of our students\n${output}`);
   } catch (error) {
     res.send('Cannot load the database');
   }
 });
 
 app.use((req, res) => {
-  res.statusCode = 404;
-  res.send('404: Page Not Found');
+  res.status(404).send('404: Page Not Found');
 });
 
 app.listen(1245);

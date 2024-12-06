@@ -7,6 +7,10 @@
 const fs = require('fs').promises;
 
 async function countStudents(path) {
+  if (!fs.existsSync(path)) {
+    throw new Error('Cannot load the database');
+  }
+
   try {
     const content = await fs.readFile(path, 'utf-8');
     const lines = content.split('\n').filter((line) => line.trim() !== '');
